@@ -14,8 +14,6 @@ namespace NextMAUIApp.ViewModels
         [ICommand]
         public async Task GetLocation()
         {
-            // TODO: permission check for Location
-
             // Get cached location, else get real location.
             var location = await geolocation.GetLastKnownLocationAsync();
             if (location == null)
