@@ -34,6 +34,9 @@
                 x:Name="CounterLabel"
                 HorizontalOptions="Center" />
 
+            <Button Text="Get Location"
+                    Command="{Binding GetLocationCommand}"/>
+
             <Button 
                 Text="Click me"
                 TextColor="Blue"
