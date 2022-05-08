@@ -1,12 +1,15 @@
-﻿namespace NextMAUIApp;
+﻿using NextMAUIApp.ViewModels;
+
+namespace NextMAUIApp;
 
 public partial class MainPage : ContentPage
 {
     int count = 0;
 
-    public MainPage()
+    public MainPage(MainPageModel viewModel)
     {
         InitializeComponent();
+        this.BindingContext = viewModel;
     }
 
     private void OnCounterClicked(object sender, EventArgs e)

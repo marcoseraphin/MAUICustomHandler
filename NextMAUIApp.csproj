@@ -53,11 +53,17 @@
 	  <None Remove=".gitattributes" />
 	  <None Remove=".gitignore" />
 	  <None Remove=".DS_Store" />
+	  <None Remove="ViewModels\" />
+	  <None Remove="CommunityToolkit.Mvvm" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Platforms\Android\Handler\" />
 	  <Folder Include="Platforms\iOS\Handler\" />
 	  <Folder Include="Platforms\MacCatalyst\Handler\" />
 	  <Folder Include="Handler\" />
+	  <Folder Include="ViewModels\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="7.1.2" />
 	</ItemGroup>
 </Project>

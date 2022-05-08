@@ -1,4 +1,6 @@
-﻿namespace NextMAUIApp;
+﻿using NextMAUIApp.ViewModels;
+
+namespace NextMAUIApp;
 
 public static class MauiProgram
 {
@@ -15,6 +17,9 @@ public static class MauiProgram
 
         // Call static custom entry handler method
         CustomEntryHandler.Handle();
+
+        builder.Services.AddSingleton<MainPageModel>();
+        builder.Services.AddSingleton<MainPage>();
 
         return builder.Build();
     }
