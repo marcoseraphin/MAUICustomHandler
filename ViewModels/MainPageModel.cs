@@ -1,4 +1,5 @@
 ﻿using System;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
 namespace NextMAUIApp.ViewModels
@@ -7,9 +8,14 @@ namespace NextMAUIApp.ViewModels
     {
         private IGeolocation geolocation;
 
+        [ObservableProperty]
+        private string locationText;
+
         [ICommand]
         public async Task GetLocation()
         {
+            // TODO: permission check for Location
+
             // Get cached location, else get real location.
             var location = await geolocation.GetLastKnownLocationAsync();
             if (location == null)
@@ -20,6 +26,8 @@ namespace NextMAUIApp.ViewModels
                     Timeout = TimeSpan.FromSeconds(30)
                 });
             }
+
+            this.LocationText = "Location => " + location.Longitude.ToString() + " | " + location.Latitude.ToString();
         }
 
         public MainPageModel(IGeolocation geolocation)

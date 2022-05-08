@@ -37,6 +37,8 @@
             <Button Text="Get Location"
                     Command="{Binding GetLocationCommand}"/>
 
+            <Label Text="{Binding LocationText}" />
+
             <Button 
                 Text="Click me"
                 TextColor="Blue"
