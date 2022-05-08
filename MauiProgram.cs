@@ -13,6 +13,7 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
 
+        // Call static custom entry handler method
         CustomEntryHandler.Handle();
 
         return builder.Build();

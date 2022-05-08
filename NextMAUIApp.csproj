@@ -50,6 +50,9 @@
 	  <None Remove="Platforms\iOS\Handler\" />
 	  <None Remove="Platforms\MacCatalyst\Handler\" />
 	  <None Remove="Handler\" />
+	  <None Remove=".gitattributes" />
+	  <None Remove=".gitignore" />
+	  <None Remove=".DS_Store" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Platforms\Android\Handler\" />
