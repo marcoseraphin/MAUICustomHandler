@@ -18,9 +18,11 @@ public static class MauiProgram
         // Call static custom entry handler method
         CustomEntryHandler.Handle();
 
+        // Inject (DI) view model into page
         builder.Services.AddSingleton<MainPageModel>();
         builder.Services.AddSingleton<MainPage>();
 
+        // Inject default GeoLocation service into viewmodel constructor
         builder.Services.AddSingleton<IGeolocation>(Geolocation.Default);
 
         return builder.Build();
