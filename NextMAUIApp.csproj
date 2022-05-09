@@ -38,6 +38,7 @@
 	</ItemGroup>
 	<PropertyGroup Condition="$(TargetFramework.Contains('-ios'))">
 		<RuntimeIdentifier>ios-arm64</RuntimeIdentifier>
+		<RuntimeIdentifier>iossimulator-x64</RuntimeIdentifier>
 	</PropertyGroup>
 	<ItemGroup>
 		<None Remove="Platforms\Android\Handler\" />
