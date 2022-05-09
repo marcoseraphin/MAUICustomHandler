@@ -1,5 +1,5 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
@@ -10,18 +10,14 @@
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
-
 		<!-- Display name -->
 		<ApplicationTitle>NextMAUIApp</ApplicationTitle>
-
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.nextmauiapp</ApplicationId>
 		<ApplicationIdGuid>517df800-e4dd-43f9-b8db-40bd6ff7bbba</ApplicationIdGuid>
-
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
 		<ApplicationVersion>1</ApplicationVersion>
-
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
@@ -29,41 +25,39 @@
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 	</PropertyGroup>
-
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\appicon.svg" ForegroundFile="Resources\appiconfg.svg" Color="#512BD4" />
-
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\appiconfg.svg" Color="#512BD4" BaseSize="128,128" />
-
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 		<MauiFont Include="Resources\Fonts\*" />
-
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
-
+	<PropertyGroup Condition="$(TargetFramework.Contains('-ios'))">
+		<RuntimeIdentifier>ios-arm64</RuntimeIdentifier>
+	</PropertyGroup>
 	<ItemGroup>
-	  <None Remove="Platforms\Android\Handler\" />
-	  <None Remove="Platforms\iOS\Handler\" />
-	  <None Remove="Platforms\MacCatalyst\Handler\" />
-	  <None Remove="Handler\" />
-	  <None Remove=".gitattributes" />
-	  <None Remove=".gitignore" />
-	  <None Remove=".DS_Store" />
-	  <None Remove="ViewModels\" />
-	  <None Remove="CommunityToolkit.Mvvm" />
+		<None Remove="Platforms\Android\Handler\" />
+		<None Remove="Platforms\iOS\Handler\" />
+		<None Remove="Platforms\MacCatalyst\Handler\" />
+		<None Remove="Handler\" />
+		<None Remove=".gitattributes" />
+		<None Remove=".gitignore" />
+		<None Remove=".DS_Store" />
+		<None Remove="ViewModels\" />
+		<None Remove="CommunityToolkit.Mvvm" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="Platforms\Android\Handler\" />
-	  <Folder Include="Platforms\iOS\Handler\" />
-	  <Folder Include="Platforms\MacCatalyst\Handler\" />
-	  <Folder Include="Handler\" />
-	  <Folder Include="ViewModels\" />
+		<Folder Include="Platforms\Android\Handler\" />
+		<Folder Include="Platforms\iOS\Handler\" />
+		<Folder Include="Platforms\MacCatalyst\Handler\" />
+		<Folder Include="Handler\" />
+		<Folder Include="ViewModels\" />
 	</ItemGroup>
 	<ItemGroup>
-	  <PackageReference Include="CommunityToolkit.Mvvm" Version="7.1.2" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="7.1.2" />
 	</ItemGroup>
 </Project>
