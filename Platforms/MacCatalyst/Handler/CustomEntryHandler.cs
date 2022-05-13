@@ -9,7 +9,7 @@ namespace NextMAUIApp
             {
                 if (v is CustomEntryHandler)
                 {
-                    h.PlatformView.BackgroundColor = UIKit.UIColor.LightGray;
+                    h.PlatformView.BackgroundColor = UIKit.UIColor.SystemBlue;
                 }
             });
         }
